@@ -237,3 +237,70 @@ class DoublyLinkedList:
             curr = curr.prev
         self.head = prev_node.prev
 ```
+
+---
+
+### append(new_value)
+Adds a new node with the given new_value to the end of the linked list.
+
+**Whiteboard**
+![Whiteboard](./assets/Append_Whiteboard.png)
+
+**Arguments:**
+- `new_value`: The value to be stored in the new node.
+
+**Example:**
+```python
+my_list = LinkedList()
+my_list.append(5)
+my_list.append(10)
+```
+---
+
+
+### insert_before(value, new_value)
+Adds a new node with the given new_value immediately before the first node that has the value specified.
+
+**Whiteboard**
+![Whiteboard](./assets/InsertBefore_Whiteboard.png)
+
+**Arguments:**
+
+- `value`: The value before which the new node should be inserted.
+- `new_value`: The value to be stored in the new node.
+
+**Example:**
+```python
+my_list = LinkedList()
+my_list.append(1)
+my_list.append(2)
+my_list.append(3)
+my_list.insert_before(2, 5)
+```
+
+---
+
+
+### insert_after(value, new_value)
+Adds a new node with the given new_value immediately after the first node that has the value specified.
+
+**Whiteboard**
+![Whiteboard](./assets/insertAfter_Whiteboard.png)
+
+**Arguments:**
+
+- `value`: The value after which the new node should be inserted.
+- `new_value`: The value to be stored in the new node.
+
+**Example:**
+```python
+my_list = LinkedList()
+my_list.append(1)
+my_list.append(2)
+my_list.append(3)
+my_list.insert_after(2, 5)
+```
+
+---
+
+

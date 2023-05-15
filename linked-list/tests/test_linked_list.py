@@ -57,3 +57,43 @@ def test_get_all_values():
     actual = my_list.to_string()
     expected = "{ c } -> { b } -> { a } -> NULL"
     assert actual == expected
+
+
+def test_append_multiple_nodes():
+    my_list = LinkedList()
+    my_list.append('a')
+    my_list.append('b')
+    my_list.append('c')
+    actual = my_list.to_string()
+    expected = "{ a } -> { b } -> { c } -> NULL"
+    assert actual == expected
+
+def test_insert_before_existing_value():
+    my_list = LinkedList()
+    my_list.append('a')
+    my_list.append('b')
+    my_list.append('c')
+    my_list.insert_before('b', 'x')
+    actual = my_list.to_string()
+    expected = "{ a } -> { x } -> { b } -> { c } -> NULL"
+    assert actual == expected
+
+def test_insert_before_head():
+    my_list = LinkedList()
+    my_list.append('a')
+    my_list.append('b')
+    my_list.append('c')
+    my_list.insert_before('a', 'x')
+    actual = my_list.to_string()
+    expected = "{ x } -> { a } -> { b } -> { c } -> NULL"
+    assert actual == expected
+
+def test_insert_after_existing_value():
+    my_list = LinkedList()
+    my_list.append('a')
+    my_list.append('b')
+    my_list.append('c')
+    my_list.insert_after('b', 'x')
+    actual = my_list.to_string()
+    expected = "{ a } -> { b } -> { x } -> { c } -> NULL"
+    assert actual == expected
