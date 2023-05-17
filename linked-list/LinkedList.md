@@ -304,3 +304,7 @@ my_list.insert_after(2, 5)
 ---
 
 
+### kth element 
+![Whiteboard](./assets/kth_element_Whiteboard.png)
+
+

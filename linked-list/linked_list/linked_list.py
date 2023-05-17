@@ -75,6 +75,33 @@ class LinkedList:
                 return
             current = current.next
         raise Exception("Value not found. Cannot insert after.")
+    
+    def kthFromEnd(self, k):
+        if k < 0:
+            raise ValueError("k should be a non-negative integer.") # raise error for non-positive values
+
+        if self.head is None:
+            raise Exception("The linked list is empty.") # raise error for empty linked list 
+
+        slow_pointer = self.head
+        fast_pointer = self.head
+
+        # Move the fast pointer k nodes ahead of slow pointer
+        for _ in range(k):
+            if fast_pointer.next is None:
+                raise Exception("k is larger than the length of the linked list.") # raise error if k is bigger than the linked list size
+            fast_pointer = fast_pointer.next
+
+        # Move both pointers until the fast pointer reaches the end
+        while fast_pointer.next is not None:
+            slow_pointer = slow_pointer.next
+            fast_pointer = fast_pointer.next
+
+        return slow_pointer.value       
+            
+        
+    
+    
 
 
 
@@ -107,3 +134,5 @@ if __name__ == "__main__":
     # Insert After
     my_list.insert_after('c', 'y')
     print(my_list.to_string())  # Output: { a } -> { x } -> { b } -> { c } -> { y } -> { d } -> { 5 } -> NULL
+    
+    print("oxoxoxox",my_list.kthFromEnd(4))
