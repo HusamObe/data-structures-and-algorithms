@@ -97,3 +97,57 @@ def test_insert_after_existing_value():
     actual = my_list.to_string()
     expected = "{ a } -> { b } -> { x } -> { c } -> NULL"
     assert actual == expected
+    
+    
+    
+def test_kthFromEnd_greater_than_length():
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(3)
+    ll.append(8)
+    ll.append(2)
+
+    with pytest.raises(Exception) as e_info:
+        ll.kthFromEnd(5)
+    assert str(e_info.value) == "k is larger than the length of the linked list."
+
+def test_kthFromEnd_same_length():
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(3)
+    ll.append(8)
+    ll.append(2)
+
+    actual = ll.kthFromEnd(3)
+    expected = 1
+    assert actual == expected
+
+def test_kthFromEnd_not_positive_integer():
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(3)
+    ll.append(8)
+    ll.append(2)
+
+    with pytest.raises(ValueError) as e_info:
+        ll.kthFromEnd(-2)
+    assert str(e_info.value) == "k should be a non-negative integer."
+
+def test_kthFromEnd_single_node():
+    ll = LinkedList()
+    ll.append(5)
+
+    actual = ll.kthFromEnd(0)
+    expected = 5
+    assert actual == expected
+
+def test_kthFromEnd_middle_of_list():
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(3)
+    ll.append(8)
+    ll.append(2)
+
+    actual = ll.kthFromEnd(2)
+    expected = 3
+    assert actual == expected
