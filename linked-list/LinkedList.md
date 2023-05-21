@@ -308,3 +308,6 @@ my_list.insert_after(2, 5)
 ![Whiteboard](./assets/kth_element_Whiteboard.png)
 
 
+### Merged Linked List
+![Whiteboard](./assets/MergedLinkedList_whiteboard.png)
+

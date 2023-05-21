@@ -98,41 +98,82 @@ class LinkedList:
             fast_pointer = fast_pointer.next
 
         return slow_pointer.value       
+    
             
+    def merge_linked_lists(list1, list2):
+        merged_list = LinkedList()
+        current1 = list1.head  
+        current2 = list2.head  
+
+        while current1 is not None and current2 is not None:
+            merged_list.append(current1.value)
+            current1 = current1.next
+
+            merged_list.append(current2.value)
+            current2 = current2.next
+
+        #for thee remaining nodes from list1 just incase
+        while current1 is not None:
+            merged_list.append(current1.value)
+            current1 = current1.next
+
+        #for the remaining nodes from list2 just in case
+        while current2 is not None:
+            merged_list.append(current2.value)
+            current2 = current2.next
+
+        return merged_list
         
-    
-    
+        
 
 
 
 if __name__ == "__main__":
     
-    my_list = LinkedList()
+    # my_list = LinkedList()
 
 
-    my_list.insert('d')
-    my_list.insert('c')
-    my_list.insert('b')
-    my_list.insert('a')
+    # my_list.insert('d')
+    # my_list.insert('c')
+    # my_list.insert('b')
+    # my_list.insert('a')
 
 
-    print(my_list.includes('b'))  
-    print(my_list.includes('d'))  
-    print(my_list.includes('f')) 
+    # print(my_list.includes('b'))  
+    # print(my_list.includes('d'))  
+    # print(my_list.includes('f')) 
 
-    print(my_list.to_string())
+    # print(my_list.to_string())
     
     
-    # Append
-    my_list.append(5)
-    print(my_list.to_string())  # Output: { a } -> { b } -> { c } -> { d } -> { 5 } -> NULL
+    # # Append
+    # my_list.append(5)
+    # print(my_list.to_string())  # Output: { a } -> { b } -> { c } -> { d } -> { 5 } -> NULL
 
-    # Insert Before
-    my_list.insert_before('b', 'x')
-    print(my_list.to_string())  # Output: { a } -> { x } -> { b } -> { c } -> { d } -> { 5 } -> NULL
+    # # Insert Before
+    # my_list.insert_before('b', 'x')
+    # print(my_list.to_string())  # Output: { a } -> { x } -> { b } -> { c } -> { d } -> { 5 } -> NULL
 
-    # Insert After
-    my_list.insert_after('c', 'y')
-    print(my_list.to_string())  # Output: { a } -> { x } -> { b } -> { c } -> { y } -> { d } -> { 5 } -> NULL
+    # # Insert After
+    # my_list.insert_after('c', 'y')
+    # print(my_list.to_string())  # Output: { a } -> { x } -> { b } -> { c } -> { y } -> { d } -> { 5 } -> NULL
     
-    print("oxoxoxox",my_list.kthFromEnd(4))
+    # print("oxoxoxox",my_list.kthFromEnd(4))
+    list1 = LinkedList()
+    list1.append(1)
+    list1.append(2)
+    list1.append(3)
+    list1.append(4)
+    list1.append(5)
+
+    list2 = LinkedList()
+    list2.append(5)
+    list2.append(6)
+    list2.append(7)
+    list2.append(8)
+
+    
+    merged_list = LinkedList.merge_linked_lists(list1, list2)
+
+    
+    print(merged_list.to_string())
