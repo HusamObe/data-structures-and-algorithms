@@ -151,3 +151,57 @@ def test_kthFromEnd_middle_of_list():
     actual = ll.kthFromEnd(2)
     expected = 3
     assert actual == expected
+    
+def test_merge_linked_lists():
+    list1 = LinkedList()
+    list1.append(1)
+    list1.append(2)
+    list1.append(3)
+    
+    list2 = LinkedList()
+    list2.append(4)
+    list2.append(5)
+    list2.append(6)
+
+    merged_list = LinkedList.merge_linked_lists(list1, list2)
+
+
+    assert merged_list.to_string() == "{ 1 } -> { 4 } -> { 2 } -> { 5 } -> { 3 } -> { 6 } -> NULL"
+
+
+def test_merge_linked_lists_with_empty_list():
+    list1 = LinkedList()
+    list1.append(1)
+    list1.append(2)
+    list1.append(3)
+
+    list2 = LinkedList()
+
+    merged_list = LinkedList.merge_linked_lists(list1, list2)
+
+    assert merged_list.to_string() == "{ 1 } -> { 2 } -> { 3 } -> NULL"
+    
+    
+def test_merge_linked_lists_with_two_empty_lists():
+    list1 = LinkedList()
+    list2 = LinkedList()
+
+    merged_list = LinkedList.merge_linked_lists(list1, list2)
+
+    assert merged_list.to_string() == "NULL"
+
+def test_merge_linked_lists_with_duplicates():
+    list1 = LinkedList()
+    list1.append(1)
+    list1.append(2)
+    list1.append(3)
+
+    list2 = LinkedList()
+    list2.append(1)
+    list2.append(2)
+    list2.append(3)
+
+    merged_list = LinkedList.merge_linked_lists(list1, list2)
+
+    assert merged_list.to_string() == "{ 1 } -> { 1 } -> { 2 } -> { 2 } -> { 3 } -> { 3 } -> NULL"
+
