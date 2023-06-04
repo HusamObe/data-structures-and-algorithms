@@ -5,5 +5,5 @@
 | 3| [Array Binary Search](./array-binary-search/array-binary-search.md) |
 | 4| [Linked List](./linked-list/LinkedList.md)|
 | 5|  [Stack & Queue](./Stack_Queue/Stack-Queue.md) |
-| 6|  |
-| 7|  |
+| 6| [Stack & Queue](./Stack_Queue/Stack-Queue.md) |
+| 7| [stack-queue-pseudo](./stack-queue-pseudo/stack-queue-pseudo.md)|
