@@ -30,6 +30,19 @@ class Stack:
 
     def is_empty(self):
         return not bool(self.top)
+    
+def validate_brackets(string):
+    stack = Stack()
+    bracket_pairs = {'(': ')', '[': ']', '{': '}'}
+
+    for char in string:
+        if char in bracket_pairs.keys():
+            stack.push(char)
+        elif char in bracket_pairs.values():
+            if stack.is_empty() or bracket_pairs[stack.pop()] != char:
+                return False
+
+    return stack.is_empty()
 
 
 class Queue:
@@ -95,3 +108,14 @@ if __name__=='__main__':
     print(queue.is_empty()) 
     print(queue.dequeue())  
     print(queue.is_empty())  
+    
+    
+    print("################# BRACKETS BALANCE CHECKER #########################")
+    print(validate_brackets("{}"))  
+    print(validate_brackets("{}(){}"))  
+    print(validate_brackets("()[[Extra Characters]]"))  
+    print(validate_brackets("(){}[[]]"))  
+    print(validate_brackets("{}{Code}[Fellows](())"))  
+    print(validate_brackets("[({}]"))  
+    print(validate_brackets("(]("))  
+    print(validate_brackets("{(})")) 
