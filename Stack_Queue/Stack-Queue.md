@@ -75,3 +75,5 @@ The steps involved are:
 
 **is_empty():**
 The `is_empty` method checks whether the queue is empty or not. It returns `True` if the queue is empty (i.e., `self.front` is `None`), and `False` otherwise.
+
+
