@@ -10,3 +10,4 @@
 | 8| [stack-queue-animal-shelter](./animal-shelter/stack-queue-animal-shelter.md)|
 | 9| [balanced-Brackets-check](./Stack_Queue/balanced-Brackets-check.md)|
 | 10| [Trees & Binary Trees](./trees/trees.md)|
+| 10| [tree-max](./trees/tree-max.md)|
