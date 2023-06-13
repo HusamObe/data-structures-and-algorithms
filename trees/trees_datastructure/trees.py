@@ -43,6 +43,18 @@ class BinaryTree:
             return result
 
         return _walk(self.root)
+    
+    def find_maximum_value(self):
+        def _find_maximum(root):
+            if root is None:
+                return float('-inf')
+
+            max_left = _find_maximum(root.left)
+            max_right = _find_maximum(root.right)
+
+            return max(max_left, max_right, root.value)
+
+        return _find_maximum(self.root)
 
 
 class BinarySearchTree(BinaryTree):
@@ -99,3 +111,6 @@ if __name__=="__main__":
 
         bst.post_order()  # Post-order traversal
         # Output: 1 4 7 6 3 13 14 10 8
+        
+        maximum_value = bst.find_maximum_value()
+        print('max = ',maximum_value)
