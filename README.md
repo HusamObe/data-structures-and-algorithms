@@ -12,3 +12,4 @@
 | 10| [Trees & Binary Trees](./trees/trees.md)|
 | 11| [tree-max](./trees/tree-max.md)|
 | 12| [insertion-sort](./insertion-sort/insertion-sort.md)|
+| 13| [merge-sort](./merge-sort/merge_sort.md)|
