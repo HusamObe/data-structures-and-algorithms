@@ -15,3 +15,4 @@
 | 13| [merge-sort](./merge-sort/merge_sort.md)|
 | 14| [sorting-Comparisons](./sorting-Comparisons/Comparisons.md)|
 | 15| [Hash Table](./Hash_Table/hashTable.md)|
+| 15| [hashmap-repeated-word](./Hash_Table/repeated_word.md)|
