@@ -36,12 +36,14 @@ movies = [
     Movie('The Dark Knight Rises', 2012, ['Action', 'Thriller']),
 ]
 
-
+movie_sorter = MovieSorter()
 
 sorted_by_year = MovieSorter.sort_by_year(movies)
-print("Sorted by Year : ")
-print(sorted_by_year)
+print("Sorted by Year:")
+for movie in sorted_by_year:
+    print(movie)
 
-sorted_by_title = MovieSorter.sort_by_title(movies)
-print("Sorted by Title: ")
-print(sorted_by_title)
+sorted_by_title = movie_sorter.sort_by_title(movies)
+print("Sorted by Title:")
+for movie in sorted_by_title:
+    print(movie)
