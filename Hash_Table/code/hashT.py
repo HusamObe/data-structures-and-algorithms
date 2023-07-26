@@ -3,6 +3,13 @@ class Node:
         self.key = key
         self.value = value
         self.next = None
+        
+# to create binary tree 
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
 
 
 class Hashtable:
@@ -71,20 +78,62 @@ def repeated_word(_str):
 
     return None
 
-print(repeated_word("Once upon a time, there was a brave princess who..."))
-print(repeated_word("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."))
-print(repeated_word("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."))
+def tree_intersection(tree1, tree2): #divide the problem into two sub problems
+    def build_values_set(node, values_set): #helper function 1
+        if node:
+            values_set.add(node.value)
+            build_values_set(node.left, values_set)
+            build_values_set(node.right, values_set)
 
-print("----------------------------------------------------------------------------------------------------")
+    def find_intersection(node, values_set, intersection): ##helper function 2
+        if node:
+            if node.value in values_set:
+                intersection.add(node.value)
+            find_intersection(node.left, values_set, intersection)
+            find_intersection(node.right, values_set, intersection)
 
-hash_table = Hashtable()
-hash_table.set("name", "Husam")
-hash_table.set("age", 33)
+    values_set1 = set()
+    build_values_set(tree1, values_set1)
 
-print("Has 'name':", hash_table.has("name"))  
-print("Has 'country':", hash_table.has("country")) 
+    intersection_set = set()
+    find_intersection(tree2, values_set1, intersection_set)
 
-print("Get 'name':", hash_table.get("name"))  
-print("Get 'age':", hash_table.get("age"))  
+    return intersection_set
 
-print("Keys:", hash_table.keys()) 
+
+
+
+root1 = TreeNode(1)
+root1.left = TreeNode(2)
+root1.right = TreeNode(3)
+root1.left.left = TreeNode(4)
+root1.left.right = TreeNode(5)
+
+
+root2 = TreeNode(2)
+root2.left = TreeNode(4)
+root2.right = TreeNode(6)
+root2.right.left = TreeNode(5)
+root2.right.right = TreeNode(7)
+
+intersection_set = tree_intersection(root1, root2)
+
+print(intersection_set)  
+
+# print(repeated_word("Once upon a time, there was a brave princess who..."))
+# print(repeated_word("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."))
+# print(repeated_word("It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."))
+
+# print("----------------------------------------------------------------------------------------------------")
+
+# hash_table = Hashtable()
+# hash_table.set("name", "Husam")
+# hash_table.set("age", 33)
+
+# print("Has 'name':", hash_table.has("name"))  
+# print("Has 'country':", hash_table.has("country")) 
+
+# print("Get 'name':", hash_table.get("name"))  
+# print("Get 'age':", hash_table.get("age"))  
+
+# print("Keys:", hash_table.keys()) 

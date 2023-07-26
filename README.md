@@ -15,4 +15,5 @@
 | 13| [merge-sort](./merge-sort/merge_sort.md)|
 | 14| [sorting-Comparisons](./sorting-Comparisons/Comparisons.md)|
 | 15| [Hash Table](./Hash_Table/hashTable.md)|
-| 15| [hashmap-repeated-word](./Hash_Table/repeated_word.md)|
+| 16| [hashmap-repeated-word](./Hash_Table/repeated_word.md)|
+| 17| [tree-intersection](./Hash_Table/tree_intersection.md)|
