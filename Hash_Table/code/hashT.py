@@ -100,25 +100,68 @@ def tree_intersection(tree1, tree2): #divide the problem into two sub problems
 
     return intersection_set
 
+def tree_to_list(node, values=[]):
+    if node:
+        tree_to_list(node.left, values)
+        values.append(node.value)
+        tree_to_list(node.right, values)
+    return values
+
+def left_join_tree_intersection(tree1, tree2):
+    # Convert binary trees to lists
+    list1 = tree_to_list(tree1)
+    list2 = tree_to_list(tree2)
+
+    
+    hash_table1 = Hashtable()
+    for value in list1:
+        hash_table1.set(value, True)
+
+    
+    intersection_set = set()
+    left_join_result = []
+    for value in list2:
+        if value:
+            key = value
+            left_value = hash_table1.get(key)
+            left_join_result.append([key, left_value, value])
+            if left_value:
+                intersection_set.add(key)
+
+    
+    result = {row[0]: row[2] for row in left_join_result if row[0] in intersection_set}
+
+    return result
 
 
 
-root1 = TreeNode(1)
-root1.left = TreeNode(2)
-root1.right = TreeNode(3)
-root1.left.left = TreeNode(4)
-root1.left.right = TreeNode(5)
+tree1 = TreeNode("diligent")
+tree1.left = TreeNode("fond")
+tree1.right = TreeNode("guide")
+tree2 = TreeNode("employed")
+tree2.left = TreeNode("enamored")
+tree2.right = TreeNode("usher")
+
+# Test the left_join_tree_intersection function
+result = left_join_tree_intersection(tree1, tree2)
+print(result)
+
+# root1 = TreeNode(1)
+# root1.left = TreeNode(2)
+# root1.right = TreeNode(3)
+# root1.left.left = TreeNode(4)
+# root1.left.right = TreeNode(5)
 
 
-root2 = TreeNode(2)
-root2.left = TreeNode(4)
-root2.right = TreeNode(6)
-root2.right.left = TreeNode(5)
-root2.right.right = TreeNode(7)
+# root2 = TreeNode(2)
+# root2.left = TreeNode(4)
+# root2.right = TreeNode(6)
+# root2.right.left = TreeNode(5)
+# root2.right.right = TreeNode(7)
 
-intersection_set = tree_intersection(root1, root2)
+# intersection_set = tree_intersection(root1, root2)
 
-print(intersection_set)  
+# print(intersection_set)  
 
 # print(repeated_word("Once upon a time, there was a brave princess who..."))
 # print(repeated_word("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."))
