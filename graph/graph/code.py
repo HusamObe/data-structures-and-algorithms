@@ -20,26 +20,41 @@ class Graph:
     
     def size(self):
         return len(self.vertices)
+    
+def business_trip(graph, cities):
+    cost = 0
+
+    for i in range(len(cities) - 1):
+        if cities[i] not in graph.vertices or cities[i + 1] not in graph.vertices:
+            return None  
+
+        found = False
+        for neighbor, weight in graph.get_neighbors(cities[i]):
+            if neighbor == cities[i + 1]:
+                cost += weight
+                found = True
+                break
+
+        if not found:
+            return None 
+
+    return cost
 
 
 if __name__ == "__main__":
     graph = Graph()
 
-    
-    graph.add_vertex("A")
-    graph.add_vertex("B")
-    graph.add_vertex("C")
+    graph.add_vertex("Amman")
+    graph.add_vertex("Irbid")
+    graph.add_vertex("Aqaba")
 
-    
-    graph.add_edge("A", "B", weight=3)
-    graph.add_edge("B", "C", weight=2)
-    graph.add_edge("A", "C", weight=4)
+    graph.add_edge("Amman", "Irbid", weight=20)
+    graph.add_edge("Irbid", "Aqaba", weight=15)
+    graph.add_edge("Aqaba", "Amman", weight=25)
 
-    vertices = graph.get_vertices()
-    print("Vertices:", vertices)
-
-    neighbors = graph.get_neighbors("A")
-    print("Neighbors of A:", neighbors)
-
-    graph_size = graph.size()
-    print("Graph size:", graph_size)
+    cities = ["Amman", "Irbid", "Aqaba"]
+    total_cost = business_trip(graph, cities)
+    if total_cost is None:
+        print("flight not available")
+    else:
+        print(f"Trip Total cost: Jd{total_cost}")
