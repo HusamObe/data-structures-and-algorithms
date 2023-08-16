@@ -19,3 +19,4 @@
 | 17| [tree-intersection](./Hash_Table/tree_intersection.md)|
 | 18| [whiteboard](./whiteboard%20assignment/README.md)|
 | 19| [Graph Cities](./graph/Screenshot%202023-08-14%20213543.png)|
+| 20| [Depth first Graph](./graph/Screenshot%202023-08-16%20191542.png)|
